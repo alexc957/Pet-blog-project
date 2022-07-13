@@ -1,44 +1,18 @@
-/* import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
-
-// A `main` function so that you can use async/await
-async function main() {
-  // ... you will write your Prisma Client queries here
-  const allUsers = await prisma.user.findMany({
-    include: { posts: true },
-  });
-
-  // use `console.dir` to print nested objects
-
-  console.dir(allUsers, { depth: null });
-}
-
-main()
-  .catch((e) => {
-    throw e;
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
-*/
-
 import express, { Response, Request, Express } from "express";
 import { PrismaClient } from "@prisma/client";
-
+import path from "path";
 // const express = require("express");
 const app: Express = express();
 const port = 8080; // default port to listen
 
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
 const prisma = new PrismaClient();
 
 // define a route handler for the default home page
-app.get("/", async (req: Request, res: Response) => {
-  const allUsers = await prisma.user.findMany({
-    include: { posts: true },
-  });
-
-  return res.json(allUsers);
+app.get("/", (req: Request, res: Response) => {
+  res.render("index.ejs");
 });
 
 // start the Express server

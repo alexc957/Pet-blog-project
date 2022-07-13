@@ -12,7 +12,6 @@ describe("[Unit] UserOperations.ts", () => {
 
       it("returns an array of users", () => {
         expect(orderedUsers).to.be.an("array");
-        expect(orderedUsers).to.be.instanceOf(Array<IUser>);
       });
 
       it("must start the first user's name with the letter a", () => {

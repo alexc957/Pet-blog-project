@@ -25,6 +25,11 @@ describe("[Unit] UserOperations.ts", () => {
         const regexExp = new RegExp("^Z", "i");
         expect(first.firstName).to.match(regexExp);
       });
+      it("must be the last name in uppercase", () => {
+        const first = orderedUsers[orderedUsers.length - 1];
+        const regexExp = new RegExp("^[A-Z]*$");
+        expect(first.lastName).to.match(regexExp);
+      });
     });
   });
 });

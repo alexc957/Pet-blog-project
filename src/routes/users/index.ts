@@ -1,21 +1,14 @@
 import express, { Response, Request, Router } from "express";
+import userControllers from "./users.controllers";
 
-const router = express.Router();
+const router: Router = express.Router();
 
-router.get("/:id", (req: Request, res: Response) => {
-  res.json({ message: "get /id" });
-});
+router.get("/:id", userControllers.getOne);
 
-router.get("/", (req: Request, res: Response) => {
-  res.json([]);
-});
+router.get("/", userControllers.getAll);
 
-router.post("/", (req: Request, res: Response) => {
-  res.json({});
-});
+router.post("/", userControllers.addOne);
 
-router.put("/:id", (req: Request, res: Response) => {
-  res.json({});
-});
+router.put("/:id", userControllers.updateOne);
 
 export default router;

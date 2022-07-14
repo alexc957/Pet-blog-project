@@ -20,7 +20,7 @@ describe("Login user spec", () => {
     it("shows an error message", () => {
       cy.get('data-cy="email"').type("alex@mail.com");
 
-      cy.get('[data-cy="password"]').type("123456");
+      cy.get('[data-cy="password"]').type("jjjjj");
 
       cy.get('[data-cy="profile-form"]').submit();
       //cy.wait(1000);

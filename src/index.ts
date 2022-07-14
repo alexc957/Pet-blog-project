@@ -14,7 +14,7 @@ app.use(indexMiddlewares.logRequests);
 
 app.use("/user", userRouter);
 
-const prisma = new PrismaClient();
+// const prisma = new PrismaClient();
 
 // define a route handler for the default home page
 app.get("/", (req: Request, res: Response) => {

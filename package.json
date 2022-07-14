@@ -31,9 +31,10 @@
     "dev:start": "npm-run-all build start",
     "dev": "nodemon --watch src -e ts,ejs --exec npm run dev:start",
     "start": "node .",
-    "test": "env mocha -r ts-node/register 'tests/**/*.ts' --reporter dot",
+    "test:unit": "env mocha -r ts-node/register 'tests/**/*.ts' --reporter dot",
     "cypress": "./node_modules/.bin/cypress open",
-    "test:e2e": "./node_modules/.bin/cypress run"
+    "test:e2e": "./node_modules/.bin/cypress run",
+    "test": "npm-run-all test:unit test:e2e"
   },
   "dependencies": {
     "@prisma/client": "3.12.0",

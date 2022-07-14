@@ -18,5 +18,5 @@ jobs:
         with:
           build: npm run build
           start: npm start
-      - name: run unit tests
-        run: npm run test
+      - name: run tests
+        run: npm run test:unit

@@ -10,6 +10,6 @@ export class UserOperations implements IUserOperations {
     this.users = users;
   }
   orderAlphabeticallyByName(): IUser[] {
-    throw new Error("Method not implemented.");
+    return [];
   }
 }
